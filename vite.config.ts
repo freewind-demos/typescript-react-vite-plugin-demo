@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [
     react(),
     functionLogger({
-      pattern: /^test/ // 只记录以test开头的函数
+      pattern: /^test/, // 只记录以test开头的函数
+      enabled: process.env.NODE_ENV !== 'test' // 在测试环境下禁用插件
     })
   ],
 })
